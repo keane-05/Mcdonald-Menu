@@ -51,7 +51,6 @@ while True:
                 choice  = input("Are you sure this is the meal you want?: ")
                 if choice == "Y":
                     payment = input("How do you want to pay?")
-                    break
                 else:
                     what_you_want = input("What do you want to buy instead: ")
 
