@@ -32,9 +32,8 @@ decision = int(input("What would you like to eat: \n1) Set Meal \n2) Ala carte\n
 while True:
     if decision == 1:
         for food in set_meals.keys():
-            print(food + " Meal" + "--------- "+ str(set_meals.get(food)))
+            print(food + " Meal" + "--------- " + str(set_meals.get(food)))
         change = input("\nDo you want to change your menu? Y/N: ")
-
         if change == "Y":
             go_back = input("Did you accidentally click? Y/N: ")
             if go_back == "Y":
@@ -48,7 +47,16 @@ while True:
         elif change == "N":
             purchasing = input("What would you like to buy: ")
             if purchasing in (set_meals.keys()):
-                    print("Your price will be: "+ str(set_meals.get(food)))
+                print("Your price will be: "+ str(set_meals.get(food)))
+                choice  = input("Are you sure this is the meal you want?: ")
+                if choice == "Y":
+                    payment = input("How do you want to pay?")
+                    break
+                else:
+                    what_you_want = input("What do you want to buy instead: ")
+
+
+
         else:
             INVALID = input("Invalid, Please try again: ")
             while INVALID != "Y" and INVALID != "N":
@@ -58,11 +66,9 @@ while True:
             elif INVALID == "N":
                 break
 
-
-
-    elif decision == "2":
-        for food in meals:
-            print("\n"+food + "------")
+    elif decision == 2:
+        for food in set_meals:
+            print(food + "------")
         change = input("\nIf you do not want this, please put in another number Y/N: ")
         if change == "Y":
             decision = int(input("What Do You Want To Change To:\n1) Set Meal\n3) Dessert\n"))
@@ -80,9 +86,9 @@ while True:
                 break
 
 
-    elif decision == "3":
+    elif decision == 3:
         for yummy in dessert:
-            print("\n"+ yummy + "-----")
+            print(yummy + "-----")
         change = input("\nIf you do not want this, please put in another number Y/N: ")
         if change == "Y":
             decision = (input("What Do You Want To Change To:\n1) Set Meal\n2) Ala Carte\n"))
@@ -100,4 +106,4 @@ while True:
             elif INVALID == "N":
                 break
     else:
-        decision = input("Wrong Number! Put a new one: ")
+        decision = int(input(("Wrong Number!, Try Again!")))
